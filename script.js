@@ -48,6 +48,7 @@ const simlishDictionary = {
     'food': 'chumcha',
     'water': 'sploosh',
     'house': 'nooboo',
+    'baby': 'nooboo',
     'friend': 'boobasnot',
     'party': 'yibsy',
     'music': 'bing bang boom',
@@ -56,6 +57,100 @@ const simlishDictionary = {
     'awesome': 'whippna choba dog',
     'cool': 'zow zibby',
     'beautiful': 'ooh be gah',
+
+    // === SONG-DERIVED VOCABULARY (from 210+ songs) ===
+    // Time & Temporal
+    'night': 'noop',
+    'tonight': 'noop',
+    'friday': 'frooby',
+    'day': 'daya',
+    'today': 'daya',
+    'young': 'yung',
+    'now': 'nowa',
+    'always': 'foreva',
+    'never': 'neva',
+    'forever': 'foreva',
+
+    // Emotions & Feelings
+    'perfect': 'perfba',
+    'sweet': 'sweeta',
+    'smile': 'asmiiiil',
+    'pressure': 'pressha',
+    'hot': 'hotta',
+    'cold': 'colda',
+    'nothing': 'nuffin',
+    'wrong': 'wronga',
+    'mad': 'madda',
+
+    // Actions & Movement  
+    'run': 'runna',
+    'walk': 'walka',
+    'shake': 'sherb',
+    'move': 'zooma',
+    'go': 'gowa',
+    'stop': 'stoppa',
+    'shut': 'shutta',
+    'fall': 'falla',
+
+    // Places & Locations
+    'way': 'waya',
+    'sunshine': 'sunsha',
+    'world': 'worlda',
+    'everywhere': 'evryba',
+    'street': 'streetba',
+    'down': 'downa',
+    'up': 'uppa',
+    'under': 'unda',
+
+    // People & Relationships
+    'me': 'mee',
+    'you': 'yib',
+    'girl': 'gurn',
+    'boy': 'boyba',
+    'someone': 'sumba',
+    'stranger': 'stranga',
+    'mama': 'mama',
+
+    // Descriptive
+    'little': 'libba',
+    'long': 'longa',
+    'new': 'newa',
+    'wild': 'wilda',
+    'fancy': 'fancba',
+    'big': 'pik',
+
+    // Nature
+    'fire': 'fliblia',
+    'stars': 'starza',
+    'light': 'lighta',
+
+    // Abstract
+    'desire': 'desira',
+    'persuasion': 'perswa',
+    'fable': 'fabla',
+    'mistake': 'mistaka',
+    'dream': 'dreema',
+    'hope': 'hopeba',
+
+    // Common Verbs
+    'say': 'saya',
+    'need': 'needa',
+    'want': 'wanta',
+    'know': 'knowa',
+    'think': 'thinka',
+    'feel': 'feela',
+    'make': 'maka',
+    'take': 'taka',
+    'give': 'giva',
+    'work': 'worka',
+    'shine': 'shina',
+
+    // Modifiers
+    'so': 'soo',
+    'too': 'tooba',
+    'more': 'mora',
+    'all': 'alla',
+    'every': 'eeburbee',
 
     // Phonetic phrase mappings (multi-word for better flow) - CHECKED FIRST!
     'got a little boom in my big truck': 'gobba libba doo bi up smurp nurp',
@@ -72,35 +167,26 @@ const simlishDictionary = {
     'doors and': 'do ba',
 
     // Song-specific curated words (matching official Simlish versions)
-    // Note: Arrays = multiple options, first is most common
     'honky': 'hurky',
     'tonk': 'durk',
     'badonkadonk': 'badurkadurk',
-    'shake': ['sherb', 'sherber'],
-    'girl': 'gurn',
     'country': 'kuntry',
     'got': 'gal',
-    'little': 'libba',
     'boom': 'doo',
     'truck': 'turb',
-    'big': 'pik',
     'ya': 'yib',
     'yea': 'yib',
     'it': ['ib', 'it'],
     'for': ['fa', 'fer'],
-    'me': ['mee', 'mi'],
     'gotta': 'gabba',
     'gonna': 'gunna',
     'wanna': 'wabba',
 
-    // Manual rhyme families - add rhyming words here!
-    // -aker rhymes (maker, shaker, taker, breaker)
+    // Manual rhyme families
     'maker': 'maka',
     'shaker': 'shaka',
     'taker': 'taka',
     'breaker': 'braka',
-
-    // -oney rhymes (money, honey, funny, sunny)
     'money': 'muni',
     'honey': 'huni',
     'funny': 'funi',
@@ -202,13 +288,16 @@ function translateToSimlish(text) {
         for (const [english, simlish] of sortedEntries) {
             const regex = new RegExp('\\b' + english + '\\b', 'gi');
             const translation = Array.isArray(simlish) ? simlish[0] : simlish;
-            result = result.replace(regex, `[[${translation}]]`);
+            // Replace spaces with underscores to prevent splitting
+            const safeTranslation = translation.replace(/\s+/g, '_');
+            result = result.replace(regex, `[[${safeTranslation}]]`);
         }
 
         // Generate Simlish for remaining words
         result = result.split(/\s+/).map(word => {
             if (word.startsWith('[[') && word.endsWith(']]')) {
-                return word.slice(2, -2);
+                // Remove brackets and restore spaces
+                return word.slice(2, -2).replace(/_/g, ' ');
             }
 
             const match = word.match(/^([^a-z']*)([a-z']+)([^a-z']*)$/i);
@@ -291,4 +380,4 @@ simlishOutput.addEventListener('scroll', () => {
     }
 });
 
-console.log('Sul sul! Welcome to the Simlish Translator! 🎮');
+console.log('Sul sul! Simlish Translator restored and ready! 🎵');

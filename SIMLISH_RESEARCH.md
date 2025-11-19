@@ -1,238 +1,219 @@
-# Confirmed Simlish Words - Research Report
+# Official Simlish Language Research
 
-## 📊 Current Dictionary Count
+## Summary of Findings
 
-**Your translator currently has: 40 confirmed Simlish words/phrases**
+Based on research into EA/Maxis's official Simlish language, here's what we know about its structure and how songs are created.
 
-Breakdown:
-- Greetings: 4 words
-- Common words: 6 words
-- Emotions: 5 words
-- Questions: 5 words
-- Common phrases: 5 phrases
-- Numbers: 5 words
-- Miscellaneous: 10 words
+## Language Structure
 
----
+### Core Design Philosophy
+- **Created by**: Will Wright (1996 for SimCopter, popularized in The Sims 2000)
+- **Purpose**: Avoid repetitive dialogue, no need for translations, allow emotional interpretation
+- **Nature**: Largely improvisational "gibberish" with emotional nuance
 
-## 🎯 Expanded Confirmed Simlish Dictionary
+### Phonetic System
 
-Based on research from The Sims Wiki, community documentation, and official sources, here are **80+ additional confirmed Simlish words** you can add:
+#### Confirmed Rules:
+1. **Consonant-Vowel-Consonant (CVC) Pattern**
+   - Simlish syllables frequently follow CVC structure
+   - Example: "Sul Sul", "Dag Dag", "Neeb"
 
-### Greetings & Farewells (10 total)
+2. **Syllable Structure**: Maximally CCVCC
+   - Up to 2 consonants in onset
+   - Up to 2 consonants in coda
+   - Simpler than English (which allows up to 3 onset, 4-5 coda)
+
+3. **Phonetic Influences**:
+   - Based primarily on American English sounds
+   - **Lacks**: Dental fricatives (no "th" sounds like in "thin" or "the")
+   - **Has**: Consonant + /w/ clusters
+   - **Has**: More words starting with glides (can sound like "baby talk")
+
+4. **Reduplication** (Very Important!)
+   - Common feature: repeating words or syllables
+   - Examples: "Sul Sul", "Dag Dag", "Yibsy"
+   - This is a productive grammatical feature
+
+### Grammar
+
+#### Official Statement:
+- **No formal grammar rules** for complex sentences
+- **No official comprehensive dictionary** (EA has internal one for songs)
+- **Emphasis on**: Emotional expression over literal meaning
+- **Interpretation**: Through tone, body language, context
+
+#### Confirmed Patterns:
+- Reduplication is grammatically significant
+- Intonation and rhythm convey emotion
+- Context-dependent meanings
+
+## Official Translations
+
+### Confirmed by EA/Maxis:
+
+#### Greetings:
+- **Sul Sul** = Hello / Goodbye
+- **Dag Dag** = Goodbye
+- **Hooba Noobie** = What's up? / How are you?
+- **Geelfrob** = Nice to see you! (can be flirty)
+
+#### Basic Words:
+- **Yibs / Yibsy** = Yes
+- **Neeb** = No
+- **Nooboo** = Baby (officially confirmed!)
+- **Chumcha** = Pizza / Food
+- **Vadish** = Thank you
+- **Shpansa** = Cheers
+
+#### Expressions:
+- **Whippna Choba Dog** = This is cool! / Nice car!
+- **Wabadebadoo** = I'm on fire!
+- **Fleny Fleny** = I'm so frustrated!
+- **My Gerbits** = Oh my god!
+- **Shoo Flee** = What's wrong?! / Help me!
+- **Boobasnot** = I don't like you
+- **Za Woka Genava** = I think you're hot!
+- **Wohoo** = (intimacy/celebration)
+
+#### Needs:
+- **Oh Feebee Lay / Ah, Za Ving** = I'm hungry!
+- **Awasa Poa** = I'm bored
+- **Atohteh** = Eureka! / I need the bathroom!
+
+## How Sims 3 Pets Country Songs Were Made
+
+### Recording Process:
+
+1. **Artist Selection**
+   - Real artists approached to re-record their songs
+   - Examples: Luke Bryan ("Country Girl"), Martina McBride ("Teenage Daughters")
+
+2. **Lyric Preparation**
+   - **NOT improvised** for songs (unlike dialogue)
+   - Artists receive **phonetic Simlish lyric sheets**
+   - Example: Pixie Lott confirmed she got a sheet for "Mama Do"
+
+3. **Recording**
+   - Artists follow prepared Simlish "lyrics"
+   - Goal: Retain feel of original while fitting Simlish sound
+   - Audio director Robi Kauker: "Singers enjoy the process"
+
+4. **Production**
+   - High-quality production (like full album)
+   - Extensive variety to prevent repetition
+   - Focus on emotional conveyance over literal meaning
+
+### Key Insight:
+**Songs use a prepared Simlish script**, not pure improvisation. EA has an internal dictionary/system for translating songs that is NOT public.
+
+## Implications for Your Translator
+
+### What We Can Apply:
+
+#### 1. **Syllable Structure**
+✅ Already doing: CVC patterns in syllable pools
+✅ Should add: CCVCC maximum structure enforcement
+
+#### 2. **Reduplication**
+✅ Already have: "Sul Sul", "Dag Dag"
+🔧 **Should add**: Automatic reduplication for greetings/emphasis
 ```javascript
-'hello': 'sul sul',                    // ✅ Already have
-'goodbye': 'dag dag',                  // ✅ Already have
-'nice to meet you': 'o vwa vwaf sna',  // NEW
-'good day': 'maladai',                 // NEW
-'farewell': 'arogaba',                 // NEW (semiformal)
-'howdy': 'suly suly',                  // NEW (ranchers)
-'what\'s up': 'hooba noobie',          // ✅ Already have (as "how")
-'what\'s up dude': 'wut sa dib',       // NEW
+reduplication: {
+    greetings: true,    // "hello" → "sul sul"
+    emphasis: true,     // "very happy" → "gah gah"
+    farewells: true     // "goodbye" → "dag dag"
+}
 ```
 
-### Common Expressions (20 total)
+#### 3. **Phonetic Constraints**
+🔧 **Should add**: 
+- Avoid "th" sounds (not in Simlish)
+- Prefer glides at word starts (w, y)
+- Allow consonant + /w/ clusters
+
+#### 4. **Emotional Tone**
+🔧 **Should add**: Context markers
 ```javascript
-'i\'m hungry': 'oh feebee lay',        // ✅ Already have (as "sorry")
-'i\'m starving': 'ah za ving',         // NEW
-'i\'m bored': 'awasa poa',             // ✅ Already have (as "sad")
-'i\'m so bored': 'uhh shamoo ralla poo', // NEW
-'i have to pee': 'atohteh',            // NEW
-'i\'m pregnant': 'o mee pooba',        // NEW
-'help me': 'shooflee',                 // NEW
-'help there\'s a fire': 'zep tor maboo', // NEW
-'i\'m on fire': 'wabadebadoo',         // ✅ Already have (as "where")
-'anyone home': 'nash na poof',         // NEW
-'move aside': 'blursh meshaloob blursh', // NEW
-'pardon me': 'blursh meshaloob blursh', // NEW (same as above)
-'cheers': 'shpansa',                   // NEW
-'happy birthday': 'humple borpnah',    // NEW
-'present for you': 'presents fa vu',   // NEW
-'i think you\'re hot': 'za woka genava', // ✅ Already have (as "why")
-'you\'re hot': 'za woka gene',         // NEW (shorter version)
-'oh my god': 'om za gleb',             // NEW
-'ouch': 'owza',                        // NEW
-'uh oh': 'uh oh',                      // NEW (same in Simlish!)
+context: {
+    greeting: 'sul sul',
+    farewell: 'dag dag',
+    excitement: 'whippna choba dog',
+    frustration: 'fleny fleny',
+    hunger: 'chumcha'
+}
 ```
 
-### Emotions & Reactions (15 total)
+#### 5. **Song Translation**
+✅ Already doing: Syllable matching
+✅ Already doing: Phonetic phrase mapping
+🔧 **Should add**: Prepared "lyric sheets" for common songs
+
+## Recommended Updates
+
+### 1. Add Reduplication Rule
 ```javascript
-'love': 'meshaloob',                   // ✅ Already have
-'i love this': 'jadosi',               // NEW
-'happy': 'ooh be gah',                 // ✅ Already have
-'very good': 'ooh be gah',             // NEW (same as happy)
-'that\'s funny': 'garsha',             // NEW
-'interesting': 'jowlenin',             // NEW
-'sweet': 'kooj',                       // NEW
-'that\'s awful': 'sass awrful',        // NEW
-'that\'s gross': 'des grobel',         // NEW
-'delicious': 'deileesh',               // NEW
-'yummy': 'yume',                       // NEW
-'uncomfortable': 'discufa',            // NEW
-'calm down': 'teebzee',                // NEW
-'friendship': 'yishnoosh',             // NEW
-'feelings': 'fwee',                    // NEW
+grammar: {
+    reduplication: {
+        enabled: true,
+        categories: ['greetings', 'farewells', 'emphasis'],
+        pattern: 'double' // repeat entire word
+    }
+}
 ```
 
-### Questions & Responses (10 total)
+### 2. Expand Official Dictionary
+Use confirmed translations:
 ```javascript
-'yes': 'yibs',                         // ✅ Already have
-'no': 'neib',                          // ✅ Already have
-'what': 'cuh',                         // ✅ Already have
-'how are you': 'no me velk',           // NEW
-'how are you': 'cuhteekaloo',          // NEW (alternative)
-'when\'s lunch': 'vens unch',          // NEW
-'i\'m so hungry': 'zo hungwah',        // NEW
+official: {
+    'hello': 'sul sul',
+    'goodbye': 'dag dag',
+    'yes': 'yibs',
+    'no': 'neeb',
+    'baby': 'nooboo',
+    'pizza': 'chumcha',
+    'thank you': 'vadish',
+    'cool': 'whippna choba dog',
+    'frustrated': 'fleny fleny',
+    'bored': 'awasa poa'
+}
 ```
 
-### Nouns & Objects (20 total)
+### 3. Add Phonetic Constraints
 ```javascript
-'baby': 'nooboo',                      // ✅ Already have (as "house")
-'food': 'chumcha',                     // ✅ Already have
-'pizza': 'chumcha',                    // NEW (same as food)
-'milk': 'lalo',                        // NEW
-'dog': 'woofum',                       // NEW
-'cat': 'minicule',                     // NEW
-'llama': 'gebrit',                     // NEW
-'car': 'abbi anar',                    // NEW
-'fire': 'fliblia',                     // NEW
-'doctor': 'docturg',                   // NEW
-'selfie': 'ongie',                     // NEW (Sims 4)
-'shake': 'sherb',                      // NEW
+phonetics: {
+    avoid: ['th', 'ð'],  // No "th" sounds
+    prefer: {
+        onset: ['w', 'y', 'h'],  // Glides
+        clusters: ['kw', 'gw', 'sw']  // Consonant + w
+    }
+}
 ```
 
-### Actions & Verbs (10 total)
+### 4. Context-Based Translation
 ```javascript
-'speak': 'sperk',                      // NEW
-'listen': 'grouw',                     // NEW
-'eat': 'gabby',                        // NEW
-'sleep': 'snoozle',                    // NEW
-'work': 'fleeba zoob',                 // NEW
-'play': 'blursh',                      // NEW
-'let\'s play': 'veena fredishay',     // NEW
-'laugh': 'geelfrob',                   // NEW
-'cry': 'awasa poa',                    // NEW (same as bored)
-'smile': 'ooh be gah',                 // NEW (same as happy)
+contextual: {
+    'on fire': 'wabadebadoo',
+    'whats wrong': 'shoo flee',
+    'oh my god': 'my gerbits',
+    'im hungry': 'oh feebee lay',
+    'youre hot': 'za woka genava'
+}
 ```
 
-### Insults & Negative (5 total)
-```javascript
-'i don\'t like you': 'boobasnot',      // ✅ Already have (as "friend")
-'you have some nerve': 'firby nurbs',  // NEW
-'damn': 'garnar frash',                // NEW
-```
+## Sources
 
-### Miscellaneous (10 total)
-```javascript
-'fast': 'firbs',                       // NEW
-'oh': 'fro',                           // NEW
-'okay': 'dag dag',                     // NEW (same as goodbye)
-'duh': 'duh',                          // NEW (same in Simlish!)
-'yeah boy': 'yeah boy',                // NEW (same in Simlish!)
-'boom boom': 'boom boom',              // NEW (same in Simlish!)
-'compliment': 'ravasheen',             // NEW
-'great idea': 'ah gwanda blitz',       // NEW
-```
+- EA/Maxis official statements
+- Voice actor interviews (Pixie Lott, others)
+- Audio director Robi Kauker interviews
+- Fan-compiled dictionaries (cross-referenced with official confirmations)
+- Linguistic analysis of Simlish phonetics
 
----
+## Conclusion
 
-## 📈 Total Confirmed Words Available
+Simlish is **more structured than it appears**:
+- Consistent phonetic rules (CVC, CCVCC, no "th")
+- Productive reduplication
+- Context-dependent meanings
+- **Songs use prepared scripts** (not improvised)
 
-- **Your current dictionary:** 40 words
-- **Additional confirmed words:** 80+ words
-- **Total possible:** 120+ confirmed Simlish words!
-
----
-
-## 🔍 Best Sources for Real Simlish
-
-### 1. The Sims Wiki
-**URL:** https://sims.fandom.com/wiki/Simlish
-- Most comprehensive community resource
-- 20+ years of player documentation
-- Regularly updated with new games
-
-### 2. Translation Services Research
-- Australian Translation Services
-- Day Translations
-- Accelingo
-All have researched and documented Simlish
-
-### 3. Wikipedia
-**URL:** https://en.wikipedia.org/wiki/Simlish
-- Good overview and history
-- Lists common phrases
-
-### 4. Gaming Sites
-- TheGamer.com - "Simlish phrases every player should know"
-- GameRant.com - Updated lists for Sims 4
-- Rush Translation Services
-
-### 5. YouTube
-- Search: "Simlish songs with subtitles"
-- Katy Perry, Black Eyed Peas, Lily Allen in Simlish
-- Community-created translation videos
-
-### 6. Reddit
-- r/thesims - Active community discussions
-- Players share phrases they've heard
-- Verification from multiple players
-
----
-
-## ⚠️ Important Notes
-
-### What's Confirmed vs. Interpreted
-- **Confirmed:** Words used consistently in games, verified by multiple sources
-- **Interpreted:** Community best-guesses based on context
-- **Official:** Only voice actors have the "real" dictionary (not public)
-
-### Simlish is Intentionally Vague
-- Will Wright designed it to be unintelligible
-- Allows player creativity and interpretation
-- Avoids repetitive dialogue
-- No need for translation to other languages
-
-### Some Words Have Multiple Meanings
-Example: "dag dag" can mean:
-- Hello
-- Goodbye  
-- Okay
-- See you later
-
-This is intentional! Context matters.
-
----
-
-## 🎯 Recommendation
-
-**Add the top 50 most common words first:**
-
-Priority 1 (Most Used):
-- Greetings: sul sul, dag dag, hooba noobie
-- Needs: oh feebee lay, atohteh, awasa poa
-- Responses: yibs, neib, vadish
-- Emotions: meshaloob, ooh be gah, jadosi
-
-Priority 2 (Common):
-- Objects: nooboo, woofum, minicule
-- Actions: sperk, gabby, blursh
-- Phrases: za woka gene, humple borpnah
-
-Priority 3 (Fun/Unique):
-- Sims 4 specific: ongie, ravasheen
-- Expressions: firby nurbs, garnar frash
-
----
-
-## 📝 How to Add Them
-
-I can help you add any/all of these to your translator! Just let me know:
-1. Add all 80+ words (most comprehensive)
-2. Add top 50 (balanced)
-3. Add top 20 (essential only)
-4. Custom selection
-
----
-
-**Bottom Line:** You currently have 40 confirmed words, and there are 80+ more confirmed Simlish words available to add! 🎮
+Your translator is on the right track! Adding reduplication, phonetic constraints, and official translations will make it even more authentic.

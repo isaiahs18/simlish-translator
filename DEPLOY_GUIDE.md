@@ -61,3 +61,24 @@ When you make changes:
 - **Can't find the folder?** Make sure you're looking in the exact path: `c:\Users\isaia\Documents\Antigravity\simlish-translator`
 - **No "Publish" button?** The repo might already be published. Look for "Push origin" instead.
 - **Site not loading?** Wait 2-3 minutes after enabling Pages, then refresh.
+
+## 🛑 Troubleshooting: "It asks for money" or "Can't make public"
+
+**Problem:** You see a message saying you need **GitHub Pro** or that it costs money.
+**Cause:** Your repository is likely set to **Private**. GitHub Pages is only free for **Public** repositories.
+
+**Solution: Make it Public (Free)**
+1. Go to your repository on GitHub.com
+2. Click **Settings** (top tab)
+3. Scroll all the way down to the "Danger Zone"
+4. Look for **"Change repository visibility"**
+5. Click **"Change visibility"** → Select **"Make public"**
+6. Confirm the action
+7. Now go back to **Pages** settings - it should be free!
+
+**Problem:** "I can't make it public" (Button disabled or error)
+**Cause:** 
+- If you are using a work/school account, your organization might block public repos.
+- If your account is brand new, GitHub might have temporarily flagged it (spam protection).
+**Solution:** Try creating a new account or contact GitHub Support.
+
