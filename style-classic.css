@@ -1,4 +1,4 @@
-/* Modern Simlish Translator Styles */
+/* Classic Simlish Translator Styles - Top to Bottom Layout */
 
 * {
     margin: 0;
@@ -25,7 +25,7 @@ body {
 }
 
 .container {
-    max-width: 1400px;
+    max-width: 900px;
     margin: 0 auto;
 }
 
@@ -50,8 +50,8 @@ header h1 {
     font-size: 1.1rem;
 }
 
-/* Translator Container */
-.translator-container {
+/* Translator Box */
+.translator-box {
     background: var(--card-bg);
     border-radius: 20px;
     padding: 30px;
@@ -60,17 +60,9 @@ header h1 {
     animation: fadeInUp 0.6s ease;
 }
 
-/* Side-by-side columns */
-.translator-columns {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
+.input-section,
+.output-section {
     margin-bottom: 20px;
-}
-
-.column {
-    display: flex;
-    flex-direction: column;
 }
 
 label {
@@ -83,18 +75,16 @@ label {
 
 textarea {
     width: 100%;
-    min-height: 400px;
     padding: 15px;
     background: var(--dark-bg);
     border: 2px solid transparent;
     border-radius: 12px;
     color: var(--text-light);
-    font-family: 'Courier New', monospace;
     font-size: 1rem;
-    line-height: 1.8;
+    font-family: 'Courier New', monospace;
+    line-height: 1.6;
     resize: vertical;
     transition: all 0.3s ease;
-    overflow-y: auto;
 }
 
 textarea:focus {
@@ -115,7 +105,7 @@ textarea::placeholder {
 .controls {
     display: flex;
     gap: 15px;
-    justify-content: center;
+    margin: 25px 0;
     flex-wrap: wrap;
 }
 
@@ -132,6 +122,7 @@ button {
 .btn-primary {
     background: linear-gradient(135deg, var(--primary-color), #00a88e);
     color: white;
+    flex: 1;
     min-width: 200px;
 }
 
@@ -234,20 +225,24 @@ footer {
 }
 
 /* Responsive */
-@media (max-width: 968px) {
-    .translator-columns {
-        grid-template-columns: 1fr;
-    }
-
+@media (max-width: 768px) {
     header h1 {
         font-size: 2rem;
     }
 
-    .translator-container {
+    .translator-box {
         padding: 20px;
     }
 
-    textarea {
-        min-height: 300px;
+    .controls {
+        flex-direction: column;
+    }
+
+    button {
+        width: 100%;
+    }
+
+    .phrase-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     }
 }

@@ -1,54 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simlish Translator 🎮</title>
+    <title>Simlish Song Translator 🎵</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <div class="container">
         <header>
-            <h1>🎮 Simlish Translator</h1>
-            <p class="subtitle">Translate English to the language of The Sims!</p>
+            <h1>🎵 Simlish Song Translator</h1>
+            <p class="subtitle">Translate song lyrics to Simlish with perfect syllable matching!</p>
         </header>
 
         <main>
-            <div class="translator-box">
-                <div class="input-section">
-                    <label for="english-input">English</label>
-                    <textarea 
-                        id="english-input" 
-                        placeholder="Type your English text here..."
-                        rows="6"
-                    ></textarea>
+            <!-- Side-by-side translator -->
+            <div class="translator-container">
+                <div class="translator-columns">
+                    <div class="column">
+                        <label for="english-input">English Lyrics</label>
+                        <textarea id="english-input"
+                            placeholder="Paste your song lyrics here...&#10;&#10;Honky tonk badonkadonk&#10;Keepin' perfect rhythm&#10;Make ya wanna swing along"></textarea>
+                    </div>
+
+                    <div class="column">
+                        <label for="simlish-output">Simlish Translation</label>
+                        <textarea id="simlish-output" placeholder="Your Simlish translation will appear here..."
+                            readonly></textarea>
+                    </div>
                 </div>
 
                 <div class="controls">
                     <button id="translate-btn" class="btn-primary">
                         Translate to Simlish →
                     </button>
-                    <button id="reverse-btn" class="btn-secondary">
-                        ← Reverse
-                    </button>
                     <button id="clear-btn" class="btn-clear">
-                        Clear
+                        Clear All
                     </button>
-                </div>
-
-                <div class="output-section">
-                    <label for="simlish-output">Simlish</label>
-                    <textarea 
-                        id="simlish-output" 
-                        placeholder="Your Simlish translation will appear here..."
-                        rows="6"
-                        readonly
-                    ></textarea>
                 </div>
             </div>
 
+            <!-- Common phrases -->
             <div class="common-phrases">
-                <h3>Common Simlish Phrases</h3>
+                <h3>Quick Phrases</h3>
                 <div class="phrase-grid">
                     <div class="phrase-card" data-english="Hello" data-simlish="Sul sul">
                         <span class="phrase-simlish">Sul sul!</span>
@@ -58,31 +54,24 @@
                         <span class="phrase-simlish">Dag dag!</span>
                         <span class="phrase-english">Goodbye!</span>
                     </div>
-                    <div class="phrase-card" data-english="Yes" data-simlish="Yibs">
-                        <span class="phrase-simlish">Yibs!</span>
-                        <span class="phrase-english">Yes!</span>
-                    </div>
-                    <div class="phrase-card" data-english="No" data-simlish="Neib">
-                        <span class="phrase-simlish">Neib!</span>
-                        <span class="phrase-english">No!</span>
+                    <div class="phrase-card" data-english="I love you" data-simlish="Meshaloob">
+                        <span class="phrase-simlish">Meshaloob!</span>
+                        <span class="phrase-english">I love you!</span>
                     </div>
                     <div class="phrase-card" data-english="Thank you" data-simlish="Vadish">
                         <span class="phrase-simlish">Vadish!</span>
                         <span class="phrase-english">Thank you!</span>
-                    </div>
-                    <div class="phrase-card" data-english="I love you" data-simlish="Meshaloob">
-                        <span class="phrase-simlish">Meshaloob!</span>
-                        <span class="phrase-english">I love you!</span>
                     </div>
                 </div>
             </div>
         </main>
 
         <footer>
-            <p>Made with ❤️ for Sims fans | <a href="https://github.com/yourusername/simlish-translator" target="_blank">GitHub</a></p>
+            <p>Made with ❤️ for Sims fans | Syllable-matched translation for singing!</p>
         </footer>
     </div>
 
     <script src="script.js"></script>
 </body>
+
 </html>

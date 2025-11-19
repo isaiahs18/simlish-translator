@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simlish Translator 🎮</title>
+    <link rel="stylesheet" href="style-classic.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>🎮 Simlish Translator</h1>
+            <p class="subtitle">Translate English to the language of The Sims!</p>
+        </header>
+
+        <main>
+            <div class="translator-box">
+                <div class="input-section">
+                    <label for="english-input">English</label>
+                    <textarea id="english-input" placeholder="Type your English text here..." rows="6"></textarea>
+                </div>
+
+                <div class="controls">
+                    <button id="translate-btn" class="btn-primary">
+                        Translate to Simlish →
+                    </button>
+                    <button id="clear-btn" class="btn-clear">
+                        Clear
+                    </button>
+                </div>
+
+                <div class="output-section">
+                    <label for="simlish-output">Simlish</label>
+                    <textarea id="simlish-output" placeholder="Your Simlish translation will appear here..." rows="6"
+                        readonly></textarea>
+                </div>
+            </div>
+
+            <div class="common-phrases">
+                <h3>Common Simlish Phrases</h3>
+                <div class="phrase-grid">
+                    <div class="phrase-card" data-english="Hello" data-simlish="Sul sul">
+                        <span class="phrase-simlish">Sul sul!</span>
+                        <span class="phrase-english">Hello!</span>
+                    </div>
+                    <div class="phrase-card" data-english="Goodbye" data-simlish="Dag dag">
+                        <span class="phrase-simlish">Dag dag!</span>
+                        <span class="phrase-english">Goodbye!</span>
+                    </div>
+                    <div class="phrase-card" data-english="Yes" data-simlish="Yibs">
+                        <span class="phrase-simlish">Yibs!</span>
+                        <span class="phrase-english">Yes!</span>
+                    </div>
+                    <div class="phrase-card" data-english="No" data-simlish="Neib">
+                        <span class="phrase-simlish">Neib!</span>
+                        <span class="phrase-english">No!</span>
+                    </div>
+                    <div class="phrase-card" data-english="Thank you" data-simlish="Vadish">
+                        <span class="phrase-simlish">Vadish!</span>
+                        <span class="phrase-english">Thank you!</span>
+                    </div>
+                    <div class="phrase-card" data-english="I love you" data-simlish="Meshaloob">
+                        <span class="phrase-simlish">Meshaloob!</span>
+                        <span class="phrase-english">I love you!</span>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>Made with ❤️ for Sims fans</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

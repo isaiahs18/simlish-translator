@@ -1,66 +1,45 @@
-# Simlish Translator 🎮
+# 🎵 Simlish Song Translator
 
-A fun web-based translator that converts English to Simlish (the language from The Sims)!
+A fun, phonetic translator that converts English song lyrics into Simlish (the language from The Sims) with perfect syllable matching for singing along!
 
-## What is Simlish?
+## ✨ Features
 
-Simlish is the fictional language spoken by Sims in The Sims video game series. It's a mix of gibberish, real language fragments, and playful sounds that create a unique, expressive language.
+- **Side-by-side translation** - English and Simlish columns with synchronized scrolling
+- **Exact syllable matching** - Maintains rhythm for songs
+- **Phrase-based phonetics** - Natural flow with context-aware translation
+- **Deterministic output** - Same word always produces same Simlish
+- **Manual rhyme families** - Preserve rhyme schemes in songs
+- **Curated dictionary** - Based on official Simlish songs
 
-## Features
+## 🎮 How to Use
 
-- 🔤 English to Simlish translation
-- 🔄 Simlish to English translation (reverse)
-- 🎨 Clean, modern interface
-- 📱 Mobile-friendly design
-- 🎵 Audio pronunciation (coming soon)
+1. Open `index.html` for **side-by-side layout** (best for songs)
+2. Or open `index-classic.html` for **top-to-bottom layout** (general use)
+3. Paste your song lyrics in the English box
+4. Click "Translate to Simlish"
+5. Scroll either side - they stay synchronized!
 
-## How It Works
+## 🎵 Example Translations
 
-The translator uses a combination of:
-1. **Word substitution** - Common words mapped to Simlish equivalents
-2. **Syllable patterns** - Breaking down words into Simlish-style syllables
-3. **Phonetic rules** - Making words sound "Simlish"
+```
+English:  Got a little boom in my big truck
+Simlish:  Gobba libba doo bi up smurp nurp
 
-## Usage
+English:  Honky tonk badonkadonk
+Simlish:  Hurky durk badurkadurk
+```
 
-1. Open `index.html` in your browser
-2. Type English text in the input box
-3. Click "Translate to Simlish"
-4. See your Simlish translation!
+## 🔧 Customization
 
-## Common Simlish Phrases
+Edit `script.js` to add your own:
+- **Phonetic phrases** - Multi-word translations for better flow
+- **Rhyme families** - Words that rhyme together
+- **Curated words** - Specific English→Simlish mappings
 
-- **Sul sul!** - Hello!
-- **Dag dag!** - Goodbye!
-- **Yibs!** - Yes!
-- **Neib!** - No!
-- **Whippna choba dog!** - That's awesome!
-- **Oh feebee lay!** - Oh my god!
+## 📝 Credits
 
-## Tech Stack
+Built with love for Sims fans and country music enthusiasts!
 
-- HTML5
-- CSS3 (with modern design)
-- Vanilla JavaScript
-- No dependencies!
+## 🚀 Live Demo
 
-## Roadmap
-
-- [ ] Basic translation engine
-- [ ] Reverse translation
-- [ ] Audio pronunciation
-- [ ] Phrase suggestions
-- [ ] Save favorite translations
-- [ ] Share translations
-
-## Contributing
-
-Feel free to add more Simlish words and phrases to make the translator better!
-
-## License
-
-MIT License - Have fun!
-
----
-
-Made with ❤️ for Sims fans everywhere!
+[Add your GitHub Pages URL here after deployment]
