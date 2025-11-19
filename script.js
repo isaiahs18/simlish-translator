@@ -187,10 +187,34 @@ const simlishDictionary = {
     'shaker': 'shaka',
     'taker': 'taka',
     'breaker': 'braka',
-    'money': 'muni',
     'honey': 'huni',
     'funny': 'funi',
     'sunny': 'suni'
+};
+
+// Song Influence Data (for Song Dictionary Page)
+const wordInfluences = {
+    'perfect': { simlish: 'perfba', song: 'Perfect Someone', artist: 'SOFI TUKKER' },
+    'stranger': { simlish: 'stranga', song: 'Perfect Stranger', artist: 'FKA Twigs' },
+    'night': { simlish: 'noop', song: 'Last Friday Night', artist: 'Katy Perry' },
+    'friday': { simlish: 'frooby', song: 'Last Friday Night', artist: 'Katy Perry' },
+    'young': { simlish: 'yung', song: 'We Are Young', artist: 'Fun.' },
+    'beautiful': { simlish: 'beautba', song: 'Beautiful Now', artist: 'Zedd' },
+    'run': { simlish: 'runna', song: 'Run Away With Me', artist: 'Carly Rae Jepsen' },
+    'way': { simlish: 'waya', song: 'Run Away With Me', artist: 'Carly Rae Jepsen' },
+    'sunshine': { simlish: 'sunsha', song: 'Pocket Full of Sunshine', artist: 'Natasha Bedingfield' },
+    'smile': { simlish: 'asmiiiil', song: 'Smile', artist: 'Lily Allen' },
+    'pressure': { simlish: 'pressha', song: 'Pressure', artist: 'Paramore' },
+    'hot': { simlish: 'hotta', song: 'Hot N Cold', artist: 'Katy Perry' },
+    'cold': { simlish: 'colda', song: 'Hot N Cold', artist: 'Katy Perry' },
+    'shake': { simlish: 'sherb', song: 'Country Girl (Shake It)', artist: 'Luke Bryan' },
+    'girl': { simlish: 'gurn', song: 'Country Girl (Shake It)', artist: 'Luke Bryan' },
+    'love': { simlish: 'meshaloob', song: 'Please Don\'t Say You Love Me', artist: 'Gabrielle Aplin' },
+    'fable': { simlish: 'fabla', song: 'Fable', artist: 'Gigi Perez' },
+    'persuasion': { simlish: 'perswa', song: 'Persuasion', artist: 'Wishy' },
+    'good': { simlish: 'goo', song: 'In A Good Way', artist: 'Faye Webster' },
+    'shut': { simlish: 'shutta', song: 'Shut Up', artist: 'The Black Eyed Peas' },
+    'up': { simlish: 'uppa', song: 'Up We Go', artist: 'Lights' }
 };
 
 // Simlish syllables - SINGLE SYLLABLES ONLY for exact matching
