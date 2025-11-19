@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simlish Dictionary 📖</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .search-container {
+            margin: 30px 0;
+            position: relative;
+        }
+
+        #search-input {
+            width: 100%;
+            padding: 15px 20px;
+            font-size: 1.2em;
+            border: 2px solid #ddd;
+            border-radius: 30px;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        #search-input:focus {
+            border-color: #9b59b6;
+            box-shadow: 0 0 10px rgba(155, 89, 182, 0.1);
+        }
+
+        .dictionary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+        }
+
+        .word-card {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #3498db;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .word-card.phrase {
+            border-left-color: #e67e22;
+            grid-column: span 2;
+        }
+
+        .english {
+            font-weight: bold;
+            color: #2c3e50;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .simlish {
+            color: #7f8c8d;
+            font-style: italic;
+            font-size: 1.1em;
+        }
+
+        .category-tag {
+            display: inline-block;
+            font-size: 0.8em;
+            padding: 2px 8px;
+            border-radius: 10px;
+            background: #ecf0f1;
+            color: #7f8c8d;
+            margin-top: 8px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <a href="index.html" class="back-link">← Back to Translator</a>
+            <h1>📖 General Simlish Dictionary</h1>
+            <p class="subtitle">Search over 300+ words and phrases!</p>
+        </header>
+
+        <div class="search-container">
+            <input type="text" id="search-input" placeholder="Search for English or Simlish words...">
+        </div>
+
+        <main>
+            <div id="dictionary-grid" class="dictionary-grid">
+                <!-- Populated by JS -->
+            </div>
+        </main>
+
+        <footer>
+            <p>Made with ❤️ for Sims fans</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const grid = document.getElementById('dictionary-grid');
+            const searchInput = document.getElementById('search-input');
+
+            // Convert dictionary to array and sort alphabetically by English
+            const entries = Object.entries(simlishDictionary).sort((a, b) => a[0].localeCompare(b[0]));
+
+            function renderWords(filter = '') {
+                grid.innerHTML = '';
+                const lowerFilter = filter.toLowerCase();
+
+                entries.forEach(([english, simlish]) => {
+                    const simlishStr = Array.isArray(simlish) ? simlish.join(', ') : simlish;
+
+                    // Search match
+                    if (!english.includes(lowerFilter) && !simlishStr.includes(lowerFilter)) return;
+
+                    const card = document.createElement('div');
+                    const isPhrase = english.includes(' ');
+                    card.className = `word-card ${isPhrase ? 'phrase' : ''}`;
+
+                    card.innerHTML = `
+                        <span class="english">${english}</span>
+                        <span class="simlish">${simlishStr}</span>
+                        ${isPhrase ? '<span class="category-tag">Phrase</span>' : '<span class="category-tag">Word</span>'}
+                    `;
+                    grid.appendChild(card);
+                });
+            }
+
+            // Initial render
+            renderWords();
+
+            // Search listener
+            searchInput.addEventListener('input', (e) => {
+                renderWords(e.target.value);
+            });
+        });
+    </script>
+</body>
+
+</html>

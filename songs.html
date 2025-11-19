@@ -107,7 +107,9 @@
 
             // 1. Populate Phrases (from simlishDictionary)
             // We look for long keys in the dictionary that are likely phrases
-            const phrases = Object.entries(simlishDictionary).filter(([key, val]) => key.includes(' '));
+            const phrases = Object.entries(simlishDictionary)
+                .filter(([key, val]) => key.includes(' '))
+                .sort((a, b) => a[0].localeCompare(b[0])); // Sort alphabetically by English phrase
 
             phrases.forEach(([english, simlish]) => {
                 // Skip simple 2-word phrases if they are just greetings/common words
@@ -124,9 +126,9 @@
             });
 
             // 2. Populate Vocabulary (from wordInfluences)
-            // Sort by song name for better browsing
+            // Sort by English word for alphabetical browsing
             const sortedInfluences = Object.entries(wordInfluences).sort((a, b) => {
-                return a[1].song.localeCompare(b[1].song);
+                return a[0].localeCompare(b[0]); // Sort alphabetically by English word
             });
 
             sortedInfluences.forEach(([english, data]) => {

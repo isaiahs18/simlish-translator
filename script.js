@@ -105,6 +105,11 @@ const simlishDictionary = {
     // People & Relationships
     'me': 'mee',
     'you': 'yib',
+    'your': 'voo',
+    'you\'re': 'voo',
+    'you\'d': 'yib-doo',
+    'i\'m': 'yob-a',
+    'it\'s': 'ib-za',
     'girl': 'gurn',
     'boy': 'boyba',
     'someone': 'sumba',
@@ -152,44 +157,78 @@ const simlishDictionary = {
     'all': 'alla',
     'every': 'eeburbee',
 
-    // Phonetic phrase mappings (multi-word for better flow) - CHECKED FIRST!
-    'got a little boom in my big truck': 'gobba libba doo bi up smurp nurp',
-    'gonna open up the doors and turn it up': 'gobba oobla do ba do ba turn up nurp',
-    'turn it up': 'turn up nurp',
-    'got a': 'gobba',
-    'in my': 'bi up',
-    'big truck': 'smurp nurp',
-    'gonna open': 'gobba oobla',
-    'open up': 'oobla do',
-    'up the': 'ba do',
-    'the doors': 'ba do',
-    'and turn': 'ba turn',
-    'doors and': 'do ba',
+    // === NEW: Katy Perry "Last Friday Night" (Lass Frooby Noop) ===
+    'last': 'lass',
+    'credit': 'crabit',
+    'card': 'car',
+    'keep': 'keet',
+    'liar': 'leeyar',
+    'park': 'par',
+    'shower': 'showa',
+    'skinny dipping': 'skeeby deeby',
+    'make': 'meksa',
+    'sticker': 'stika',
+    'didn\'t': 'dina',
 
-    // Song-specific curated words (matching official Simlish versions)
-    'honky': 'hurky',
-    'tonk': 'durk',
-    'badonkadonk': 'badurkadurk',
-    'country': 'kuntry',
-    'got': 'gal',
-    'boom': 'doo',
-    'truck': 'turb',
-    'ya': 'yib',
-    'yea': 'yib',
-    'it': ['ib', 'it'],
-    'for': ['fa', 'fer'],
-    'gotta': 'gabba',
-    'gonna': 'gunna',
-    'wanna': 'wabba',
+    // === NEW: Katy Perry "Hot N Cold" ===
+    'doctor': 'docta',
+    'bridge': 'brij',
+    'town': 'towna',
+    'sleep': 'slerp',
+    'drunk': 'drunka',
 
-    // Manual rhyme families
-    'maker': 'maka',
-    'shaker': 'shaka',
-    'taker': 'taka',
-    'breaker': 'braka',
-    'honey': 'huni',
-    'funny': 'funi',
-    'sunny': 'suni'
+    // === NEW: Sims Wiki Common Phrases ===
+    'nice to meet you': 'o vwa vwaf sna',
+    'excuse me': 'blursh',
+    'i have to pee': 'atohteh',
+    'i\'m hungry': 'oh feebee lay',
+    'i\'m pregnant': 'o mee pooba',
+    'i\'m on fire': 'wabadebadoo',
+    'help': 'shooflee',
+    'problem': 'shooflee',
+    'i love this': 'jadosi',
+    'delicious': 'deileesh',
+    'gross': 'des grobel',
+    'funny': 'garsha',
+    'i\'m bored': 'uhh shamoo ralla poo',
+    'fire': 'zep tor maboo',
+    'i look hot': 'ravasheen',
+    'how are you': 'cuhteekaloo',
+    'let\'s play': 'veena fredishay',
+    'can this be real': 'k-me nes ra shen',
+    'i can feel the pressure': 'yeah feel all but sur bri',
+
+    // Lily Allen - Smile
+    'when you first left me i was wanting more': 'wanufi lepto aba wabwa moops',
+    'but you were fucking that girl next door': 'bayawa flooping ta gooni doo',
+    'what\'cha do that for': 'waja dawa foops',
+    'at first when i see you cry': 'kofui isabasi bug fui',
+    'yeah it makes me smile': 'livawop asmil',
+
+    // Nelly - Hot in Herre
+    'hot': 'haspa',
+    'heat': 'haspa',
+    'burn': 'haspa',
+    'i': 'yob',
+    'my': 'ya',
+    'ain\'t': 'nay',
+    'nothing': 'neebie',
+    'nobody': 'neeb-simsie',
+    'best friend': 'yibsim',
+    'friend': 'sim',
+    'dance': 'densh',
+    'take off': 'taka oof',
+    'clothes': 'cwose',
+
+    // Pussycat Dolls - Don't Cha
+    'don\'t cha': 'doba',
+    'don\'t you': 'doba',
+    'wish': 'uisli',
+    'girlfriend': 'no uog',
+    'freak': 'uozzi',
+    'raw': 'naaao',
+    'fun': 'big fu',
+    'don\'t cha wish your girlfriend was hot like me': 'doba uisli giog no uog no logi'
 };
 
 // Song Influence Data (for Song Dictionary Page)
@@ -198,6 +237,16 @@ const wordInfluences = {
     'stranger': { simlish: 'stranga', song: 'Perfect Stranger', artist: 'FKA Twigs' },
     'night': { simlish: 'noop', song: 'Last Friday Night', artist: 'Katy Perry' },
     'friday': { simlish: 'frooby', song: 'Last Friday Night', artist: 'Katy Perry' },
+    'last': { simlish: 'lass', song: 'Last Friday Night', artist: 'Katy Perry' },
+    'credit': { simlish: 'crabit', song: 'Last Friday Night', artist: 'Katy Perry' },
+    'card': { simlish: 'car', song: 'Last Friday Night', artist: 'Katy Perry' },
+    'liar': { simlish: 'leeyar', song: 'Last Friday Night', artist: 'Katy Perry' },
+    'shower': { simlish: 'showa', song: 'Last Friday Night', artist: 'Katy Perry' },
+    'skinny dipping': { simlish: 'skeeby deeby', song: 'Last Friday Night', artist: 'Katy Perry' },
+    'doctor': { simlish: 'docta', song: 'Hot N Cold', artist: 'Katy Perry' },
+    'bridge': { simlish: 'brij', song: 'Hot N Cold', artist: 'Katy Perry' },
+    'town': { simlish: 'towna', song: 'Hot N Cold', artist: 'Katy Perry' },
+    'sleep': { simlish: 'slerp', song: 'Hot N Cold', artist: 'Katy Perry' },
     'young': { simlish: 'yung', song: 'We Are Young', artist: 'Fun.' },
     'beautiful': { simlish: 'beautba', song: 'Beautiful Now', artist: 'Zedd' },
     'run': { simlish: 'runna', song: 'Run Away With Me', artist: 'Carly Rae Jepsen' },
@@ -214,7 +263,28 @@ const wordInfluences = {
     'persuasion': { simlish: 'perswa', song: 'Persuasion', artist: 'Wishy' },
     'good': { simlish: 'goo', song: 'In A Good Way', artist: 'Faye Webster' },
     'shut': { simlish: 'shutta', song: 'Shut Up', artist: 'The Black Eyed Peas' },
-    'up': { simlish: 'uppa', song: 'Up We Go', artist: 'Lights' }
+    'up': { simlish: 'uppa', song: 'Up We Go', artist: 'Lights' },
+    'nice to meet you': { simlish: 'o vwa vwaf sna', song: 'The Sims 4 (Official)', artist: 'Maxis' },
+    'excuse me': { simlish: 'blursh', song: 'The Sims 4 (Official)', artist: 'Maxis' },
+    'i\'m on fire': { simlish: 'wabadebadoo', song: 'The Sims 1 (Official)', artist: 'Maxis' },
+    'help': { simlish: 'shooflee', song: 'The Sims 4 (Official)', artist: 'Maxis' },
+    'i love this': { simlish: 'jadosi', song: 'The Sims 4 (Official)', artist: 'Maxis' },
+    'delicious': { simlish: 'deileesh', song: 'The Sims 4 (Official)', artist: 'Maxis' },
+    'gross': { simlish: 'des grobel', song: 'The Sims 4 (Official)', artist: 'Maxis' },
+    'funny': { simlish: 'garsha', song: 'The Sims 4 (Official)', artist: 'Maxis' },
+    'i\'m bored': { simlish: 'uhh shamoo ralla poo', song: 'The Sims 4 (Official)', artist: 'Maxis' },
+    'i look hot': { simlish: 'ravasheen', song: 'The Sims 4 (Official)', artist: 'Maxis' },
+    'how are you': { simlish: 'cuhteekaloo', song: 'The Sims 4 (Official)', artist: 'Maxis' },
+    'let\'s play': { simlish: 'veena fredishay', song: 'The Sims 4 (Official)', artist: 'Maxis' },
+    'great idea': { simlish: 'ah gwanda blitz', song: 'The Sims 4 (Official)', artist: 'Maxis' },
+    'pressure': { simlish: 'pressha', song: 'Pressure', artist: 'Paramore' },
+    'feel': { simlish: 'feel', song: 'Pressure', artist: 'Paramore' },
+    'smile': { simlish: 'asmil', song: 'Smile', artist: 'Lily Allen' },
+    'cry': { simlish: 'fui', song: 'Smile', artist: 'Lily Allen' },
+    'girl next door': { simlish: 'gooni doo', song: 'Smile', artist: 'Lily Allen' },
+    'hot': { simlish: 'haspa', song: 'Hot in Herre', artist: 'Nelly' },
+    'nobody': { simlish: 'neeb-simsie', song: 'Hot in Herre', artist: 'Nelly' },
+    'dance': { simlish: 'densh', song: 'Hot in Herre', artist: 'Nelly' }
 };
 
 // Simlish syllables - SINGLE SYLLABLES ONLY for exact matching
@@ -310,8 +380,17 @@ function translateToSimlish(text) {
 
         // Match phrases and words (longest first for better context)
         for (const [english, simlish] of sortedEntries) {
-            const regex = new RegExp('\\b' + english + '\\b', 'gi');
+            // Smart regex: Only add \b if the key starts/ends with a word character
+            // This fixes matches for keys starting with punctuation like "'cause"
+            const startBoundary = /^\w/.test(english) ? '\\b' : '';
+            const endBoundary = /\w$/.test(english) ? '\\b' : '';
+
+            // Escape special regex characters in the key (like . or ?)
+            const escapedEnglish = english.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+
+            const regex = new RegExp(startBoundary + escapedEnglish + endBoundary, 'gi');
             const translation = Array.isArray(simlish) ? simlish[0] : simlish;
+
             // Replace spaces with underscores to prevent splitting
             const safeTranslation = translation.replace(/\s+/g, '_');
             result = result.replace(regex, `[[${safeTranslation}]]`);
@@ -319,9 +398,9 @@ function translateToSimlish(text) {
 
         // Generate Simlish for remaining words
         result = result.split(/\s+/).map(word => {
-            if (word.startsWith('[[') && word.endsWith(']]')) {
-                // Remove brackets and restore spaces
-                return word.slice(2, -2).replace(/_/g, ' ');
+            // Check for any bracketed content (handles contractions like [[yib]]'re)
+            if (word.includes('[[')) {
+                return word.replace(/\[\[(.*?)\]\]/g, (match, p1) => p1.replace(/_/g, ' '));
             }
 
             const match = word.match(/^([^a-z']*)([a-z']+)([^a-z']*)$/i);
