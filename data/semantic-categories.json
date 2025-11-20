@@ -1,0 +1,188 @@
+{
+    "movement": {
+        "simlish": "zooma",
+        "words": [
+            "walk",
+            "run",
+            "move",
+            "go",
+            "travel",
+            "walking",
+            "running",
+            "moving",
+            "going"
+        ]
+    },
+    "communication": {
+        "simlish": "yabba",
+        "words": [
+            "talk",
+            "speak",
+            "say",
+            "tell",
+            "chat",
+            "talking",
+            "speaking",
+            "saying"
+        ]
+    },
+    "copying": {
+        "simlish": "copyba",
+        "words": [
+            "imitate",
+            "copy",
+            "mimic",
+            "imitating",
+            "copying",
+            "mimicking"
+        ]
+    },
+    "eating": {
+        "simlish": "nomnom",
+        "words": [
+            "eat",
+            "consume",
+            "devour",
+            "eating",
+            "consuming",
+            "devouring",
+            "munch"
+        ]
+    },
+    "drinking": {
+        "simlish": "sploosh",
+        "words": [
+            "drink",
+            "sip",
+            "gulp",
+            "drinking",
+            "sipping",
+            "gulping"
+        ]
+    },
+    "sleeping": {
+        "simlish": "slerp",
+        "words": [
+            "sleep",
+            "rest",
+            "nap",
+            "sleeping",
+            "resting",
+            "napping",
+            "snooze"
+        ]
+    },
+    "working": {
+        "simlish": "worka",
+        "words": [
+            "work",
+            "labor",
+            "toil",
+            "working",
+            "laboring"
+        ]
+    },
+    "playing": {
+        "simlish": "yibsy",
+        "words": [
+            "play",
+            "game",
+            "playing",
+            "gaming"
+        ]
+    },
+    "singing": {
+        "simlish": "la la",
+        "words": [
+            "sing",
+            "hum",
+            "croon",
+            "singing",
+            "humming"
+        ]
+    },
+    "happiness": {
+        "simlish": "ooh be gah",
+        "words": [
+            "happy",
+            "joyful",
+            "cheerful",
+            "glad",
+            "pleased"
+        ]
+    },
+    "sadness": {
+        "simlish": "awasa poa",
+        "words": [
+            "sad",
+            "unhappy",
+            "depressed",
+            "melancholy",
+            "down"
+        ]
+    },
+    "anger": {
+        "simlish": "benzi chibna looble",
+        "words": [
+            "angry",
+            "mad",
+            "furious",
+            "irritated",
+            "annoyed"
+        ]
+    },
+    "fear": {
+        "simlish": "feebee",
+        "words": [
+            "scared",
+            "afraid",
+            "frightened",
+            "terrified"
+        ]
+    },
+    "excitement": {
+        "simlish": "whippna choba dog",
+        "words": [
+            "excited",
+            "thrilled",
+            "pumped",
+            "hyped"
+        ]
+    },
+    "hunger": {
+        "simlish": "chumcha",
+        "words": [
+            "hungry",
+            "starving",
+            "famished",
+            "ravenous"
+        ]
+    },
+    "thirst": {
+        "simlish": "sploosh",
+        "words": [
+            "thirsty",
+            "parched"
+        ]
+    },
+    "tiredness": {
+        "simlish": "slerp",
+        "words": [
+            "tired",
+            "exhausted",
+            "sleepy",
+            "weary",
+            "fatigued",
+            "drowsy"
+        ]
+    },
+    "health": {
+        "simlish": "ooh be gah",
+        "words": [
+            "healthy",
+            "well",
+            "fit",
+            "good"
+        ]
+    }
+}

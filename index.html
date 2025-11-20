@@ -16,57 +16,46 @@
             <p><a href="dictionary.html" class="btn-primary" style="margin-top:10px; display:inline-block;">📖 General
                     Dictionary</a></p>
         </header>
-
         <main>
-            <!-- Side-by-side translator -->
             <div class="translator-container">
                 <div class="translator-columns">
                     <div class="column">
                         <label for="english-input">English Lyrics</label>
                         <textarea id="english-input" placeholder="Enter your text here..."></textarea>
                     </div>
-
                     <div class="column">
                         <label for="simlish-output">Simlish Translation</label>
                         <textarea id="simlish-output" placeholder="Your Simlish translation will appear here..."
                             readonly></textarea>
                     </div>
                 </div>
-
                 <div class="controls">
                     <button id="translate-btn" class="btn-primary">Translate to Simlish →</button>
                     <button id="clear-btn" class="btn-clear">Clear All</button>
                 </div>
             </div>
-
-            <!-- Common phrases -->
             <div class="common-phrases">
                 <h3>Quick Phrases</h3>
                 <div class="phrase-grid">
-                    <div class="phrase-card" data-english="Hello" data-simlish="Sul sul">
-                        <span class="phrase-simlish">Sul sul!</span>
-                        <span class="phrase-english">Hello!</span>
+                    <div class="phrase-card" data-english="Hello"><span class="phrase-simlish">Sul sul!</span><span
+                            class="phrase-english">Hello!</span></div>
+                    <div class="phrase-card" data-english="Goodbye"><span class="phrase-simlish">Dag dag!</span><span
+                            class="phrase-english">Goodbye!</span></div>
+                    <div class="phrase-card" data-english="I love you"><span
+                            class="phrase-simlish">Meshaloob!</span><span class="phrase-english">I love you!</span>
                     </div>
-                    <div class="phrase-card" data-english="Goodbye" data-simlish="Dag dag">
-                        <span class="phrase-simlish">Dag dag!</span>
-                        <span class="phrase-english">Goodbye!</span>
-                    </div>
-                    <div class="phrase-card" data-english="I love you" data-simlish="Meshaloob">
-                        <span class="phrase-simlish">Meshaloob!</span>
-                        <span class="phrase-english">I love you!</span>
-                    </div>
-                    <div class="phrase-card" data-english="Thank you" data-simlish="Vadish">
-                        <span class="phrase-simlish">Vadish!</span>
-                        <span class="phrase-english">Thank you!</span>
-                    </div>
+                    <div class="phrase-card" data-english="Thank you"><span class="phrase-simlish">Vadish!</span><span
+                            class="phrase-english">Thank you!</span></div>
                 </div>
             </div>
         </main>
-
         <footer>
-            <p>Made with ❤️ for Sims fans | Syllable-matched translation for singing!</p>
+            <p>Made with ❤️ for Sims fans | Optimized & Fast!</p>
             <p style="margin-top: 10px;">
-                <a href="songs.html" style="color: #9b59b6; text-decoration: none; font-weight: 600;">🎵 View Song
+                <a href="lyrics.html" style="color: #9b59b6; text-decoration: none; font-weight: 600;">🎵 Song
+                    Lyrics</a>
+                <a href="songs.html"
+                    style="color: #9b59b6; text-decoration: none; font-weight: 600; margin-left: 15px;">🎵 View Song
                     Dictionary</a>
                 <a href="dictionary.html"
                     style="color: #9b59b6; text-decoration: none; font-weight: 600; margin-left: 15px;">📖 General
@@ -75,7 +64,61 @@
         </footer>
     </div>
 
-    <script src="script.js"></script>
+    <!-- Embedded data (works without web server) -->
+    <!-- Embedded data (works without web server) -->
+    <script src="data/dictionary.js"></script>
+    <script src="data/contextual-phrases.js"></script>
+    <script src="data/semantic-categories.js"></script>
+    <script src="js/phonetic-engine.js"></script>
+    <script src="js/core/translator.js"></script>
+    <script>
+        let translator = null;
+
+        function initializeTranslator() {
+            try {
+                // Initialize Phonetic Engine
+                const phoneticEngine = new PhoneticEngine();
+
+                // Use embedded data (no CORS issues)
+                translator = new SimlishTranslator(
+                    window.SimlishData.dictionary,
+                    window.SimlishData.contextualPhrases,
+                    window.SimlishData.semanticCategories,
+                    phoneticEngine
+                );
+                console.log('✅ Translator ready with Phonetic Engine!');
+            } catch (error) {
+                console.error('❌ Failed to initialize:', error);
+                alert('Failed to load translator. Please refresh.');
+            }
+        }
+
+        function translateText() {
+            if (!translator) { alert('Still loading...'); return; }
+            const input = document.getElementById('english-input').value;
+            document.getElementById('simlish-output').value = translator.translate(input);
+        }
+
+        function clearAll() {
+            document.getElementById('english-input').value = '';
+            document.getElementById('simlish-output').value = '';
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            initializeTranslator();
+            document.getElementById('translate-btn').addEventListener('click', translateText);
+            document.getElementById('clear-btn').addEventListener('click', clearAll);
+            document.getElementById('english-input').addEventListener('keypress', (e) => {
+                if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); translateText(); }
+            });
+            document.querySelectorAll('.phrase-card').forEach(card => {
+                card.addEventListener('click', () => {
+                    document.getElementById('english-input').value = card.dataset.english;
+                    translateText();
+                });
+            });
+        });
+    </script>
 </body>
 
 </html>

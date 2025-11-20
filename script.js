@@ -2,6 +2,18 @@
 
 // Simlish Dictionary (Common words and phrases)
 const simlishDictionary = {
+    // === NEW CONFIRMED WORDS (from official sources) ===
+    'cheers': 'shpansa',
+    'marry me': 'vanu marsha ma',
+    'will you marry me': 'vanu marsha ma',
+    'wedding': 'noobtia',
+    'great idea': 'ah gwanda blitz',
+    'i think you\'re hot': 'za woka genava',
+    'i love you': 'por see gab lurv',
+    'when\'s lunch': 'vens unch',
+    'good day': 'maladai',
+    'this is cool': 'whippna choba dog',
+
     // Greetings
     'hello': 'sul sul',
     'hi': 'sul sul',
@@ -151,31 +163,6 @@ const simlishDictionary = {
     'shine': 'shina',
 
     // Modifiers
-    'so': 'soo',
-    'too': 'tooba',
-    'more': 'mora',
-    'all': 'alla',
-    'every': 'eeburbee',
-
-    // === NEW: Katy Perry "Last Friday Night" (Lass Frooby Noop) ===
-    'last': 'lass',
-    'credit': 'crabit',
-    'card': 'car',
-    'keep': 'keet',
-    'liar': 'leeyar',
-    'park': 'par',
-    'shower': 'showa',
-    'skinny dipping': 'skeeby deeby',
-    'make': 'meksa',
-    'sticker': 'stika',
-    'didn\'t': 'dina',
-
-    // === NEW: Katy Perry "Hot N Cold" ===
-    'doctor': 'docta',
-    'bridge': 'brij',
-    'town': 'towna',
-    'sleep': 'slerp',
-    'drunk': 'drunka',
 
     // === NEW: Sims Wiki Common Phrases ===
     'nice to meet you': 'o vwa vwaf sna',
@@ -229,6 +216,53 @@ const simlishDictionary = {
     'raw': 'naaao',
     'fun': 'big fu',
     'don\'t cha wish your girlfriend was hot like me': 'doba uisli giog no uog no logi'
+};
+
+// Fallback synonym list - prevents common words from getting generic syllable translations
+const fallbackSynonyms = {
+    // Visual descriptors
+    'deep': 'zoo',
+    'dark': 'grob',
+    'bright': 'shina',
+    'soft': 'soffa',
+    'hard': 'harda',
+
+    // Speed descriptors
+    'fast': 'fasta',
+    'slow': 'slowa',
+    'quick': 'fasta',
+
+    // Size descriptors
+    'large': 'pik',
+    'huge': 'pik',
+    'tiny': 'libba',
+    'small': 'libba',
+
+    // Emotion synonyms
+    'joyful': 'ooh be gah',
+    'cheerful': 'ooh be gah',
+    'delighted': 'ooh be gah',
+    'unhappy': 'awasa poa',
+    'melancholy': 'awasa poa',
+    'furious': 'benzi chibna looble',
+    'irritated': 'benzi chibna looble',
+
+    // Action synonyms
+    'traveling': 'zooma',
+    'chatting': 'yabba',
+    'munching': 'nomnom',
+    'sipping': 'sploosh',
+    'resting': 'slerp',
+    'snoozing': 'slerp',
+    'laboring': 'worka',
+    'gaming': 'yibsy',
+
+    // State synonyms
+    'ravenous': 'chumcha',
+    'parched': 'sploosh',
+    'weary': 'slerp',
+    'fatigued': 'slerp',
+    'drowsy': 'slerp'
 };
 
 // Song Influence Data (for Song Dictionary Page)
@@ -375,11 +409,19 @@ function translateToSimlish(text) {
 
         let result = content.toLowerCase();
 
-        // Sort dictionary entries by length (longest first) to match phrases before words
+        // STEP 1: Process context-aware phrases (if module is loaded)
+        if (typeof processContextualPhrases === 'function') {
+            result = processContextualPhrases(result);
+        }
+
+        // STEP 2: Sort dictionary entries by length (longest first) to match phrases before words
         const sortedEntries = Object.entries(simlishDictionary).sort((a, b) => b[0].length - a[0].length);
 
-        // Match phrases and words (longest first for better context)
+        // STEP 3: Match remaining phrases and words from dictionary (skip contextual phrases)
         for (const [english, simlish] of sortedEntries) {
+            // Skip if this is a contextual phrase (already processed)
+            if (typeof contextualPhrases !== 'undefined' && contextualPhrases[english]) continue;
+
             // Smart regex: Only add \b if the key starts/ends with a word character
             // This fixes matches for keys starting with punctuation like "'cause"
             const startBoundary = /^\w/.test(english) ? '\\b' : '';
@@ -409,8 +451,23 @@ function translateToSimlish(text) {
             const [, prefix, cleanWord, suffix] = match;
             const wasCapitalized = /^[A-Z]/.test(word);
 
-            const syllableCount = countSyllables(cleanWord);
-            let simlishWord = generateSimlishWordBySyllables(syllableCount, cleanWord);
+            // Check fallback synonyms first
+            const lowerWord = cleanWord.toLowerCase();
+            let simlishWord;
+
+            if (fallbackSynonyms[lowerWord]) {
+                simlishWord = fallbackSynonyms[lowerWord];
+            } else {
+                // NEW: Check semantic categories for concept-based translation
+                const semanticMatch = typeof findSemanticMatch === 'function' ? findSemanticMatch(cleanWord) : null;
+                if (semanticMatch) {
+                    simlishWord = semanticMatch;
+                } else {
+                    // Fall back to syllable-based generation
+                    const syllableCount = countSyllables(cleanWord);
+                    simlishWord = generateSimlishWordBySyllables(syllableCount, cleanWord);
+                }
+            }
 
             if (wasCapitalized && simlishWord.length > 0) {
                 simlishWord = simlishWord.charAt(0).toUpperCase() + simlishWord.slice(1);

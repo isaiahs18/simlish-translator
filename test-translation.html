@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Predictive Translation Verification</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            padding: 20px;
+        }
+
+        .pass {
+            color: green;
+            font-weight: bold;
+        }
+
+        .fail {
+            color: red;
+            font-weight: bold;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Predictive Translation Verification</h1>
+    <div id="status">Running tests...</div>
+    <table id="results">
+        <thead>
+            <tr>
+                <th>Test Case</th>
+                <th>Input Word</th>
+                <th>Expected Pattern</th>
+                <th>Actual Output</th>
+                <th>Result</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+
+    <!-- Only load the translator core, bypass data loader -->
+    <script src="js/core/translator.js"></script>
+    <script>
+        function runTests() {
+            // Instantiate with empty data - we only need the predictive engine methods
+            const translator = new SimlishTranslator({}, {}, {});
+
+            const tests = [
+                // Suffix Tests
+                { name: "Suffix -ing", input: "running", expected: /runnin$/ },
+                { name: "Suffix -ed", input: "walked", expected: /walkab$/ },
+                { name: "Suffix -s", input: "cats", expected: /catz$/ },
+                { name: "Suffix -ly", input: "quickly", expected: /quickla$/ },
+                { name: "Suffix -turn", input: "return", expected: /renip$/ },
+                { name: "Suffix -er", input: "farmer", expected: /farmur$/ },
+
+                // Consonant Tests
+                { name: "Consonant th->z", input: "this", expected: /zis/ },
+                { name: "Consonant sh->ch", input: "ship", expected: /chip/ },
+                { name: "Consonant ph->f", input: "phone", expected: /fone/ },
+                { name: "Consonant st->sk", input: "stomp", expected: /skom/ },
+                { name: "Consonant ll->lv", input: "fall", expected: /falva/ },
+                { name: "Consonant d->n (middle)", input: "body", expected: /bana/ },
+
+                // Vowel Shift Tests
+                { name: "Vowel a->o", input: "cat", expected: /cot/ },
+                { name: "Vowel e->i", input: "bed", expected: /bid/ },
+                { name: "Vowel i->y", input: "bit", expected: /byt/ },
+                { name: "Vowel o->oo", input: "hot", expected: /hoot/ },
+                { name: "Vowel u->oo", input: "cut", expected: /coot/ },
+
+                // Specific Grammar Rule Examples
+                { name: "Rule: every -> ibby", input: "every", expected: /ibby/ },
+                { name: "Rule: creek -> crease", input: "creek", expected: /crease/ },
+            ];
+
+            const tbody = document.querySelector('#results tbody');
+            let passed = 0;
+
+            tests.forEach(test => {
+                // Bypass dictionary lookup to test predictive engine directly
+                const output = translator.predictiveTranslate(test.input);
+                const isPass = test.expected.test(output);
+                if (isPass) passed++;
+
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${test.name}</td>
+                    <td>${test.input}</td>
+                    <td>${test.expected.toString()}</td>
+                    <td>${output}</td>
+                    <td class="${isPass ? 'pass' : 'fail'}">${isPass ? 'PASS' : 'FAIL'}</td>
+                `;
+                tbody.appendChild(row);
+            });
+
+            document.getElementById('status').textContent = `Tests Complete: ${passed}/${tests.length} Passed`;
+        }
+
+        // Run immediately
+        runTests();
+    </script>
+</body>
+
+</html>

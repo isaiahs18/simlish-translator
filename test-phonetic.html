@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Phonetic Engine Test Suite</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            padding: 20px;
+            background: #f0f2f5;
+        }
+
+        .test-container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .test-group {
+            margin-bottom: 20px;
+        }
+
+        .test-group h3 {
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+        }
+
+        .test-case {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .test-case:last-child {
+            border-bottom: none;
+        }
+
+        .status {
+            font-weight: bold;
+        }
+
+        .status.pass {
+            color: green;
+        }
+
+        .status.fail {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="test-container">
+        <h1>🧪 Phonetic Engine Verification</h1>
+        <div id="results">Running tests...</div>
+    </div>
+
+    <script src="data/dictionary.js"></script>
+    <script src="data/contextual-phrases.js"></script>
+    <script src="data/semantic-categories.js"></script>
+    <script src="js/phonetic-engine.js"></script>
+    <script src="js/core/translator.js"></script>
+    <script>
+        function runTests() {
+            const resultsDiv = document.getElementById('results');
+            resultsDiv.innerHTML = '';
+
+            const engine = new PhoneticEngine();
+            const translator = new SimlishTranslator(
+                window.SimlishData.dictionary,
+                window.SimlishData.contextualPhrases,
+                window.SimlishData.semanticCategories,
+                engine
+            );
+
+            const tests = [
+                {
+                    group: "Priority Check (Dictionary vs Engine)",
+                    cases: [
+                        { input: "love", expected: "meshaloob", type: "contains" },
+                        { input: "hello", expected: "sul sul", type: "contains" },
+                    ]
+                },
+                {
+                    group: "Compound Derivation (Reverse Lookup)",
+                    cases: [
+                        { input: "fish", expected: "glix", type: "contains" },
+                    ]
+                },
+                {
+                    group: "Phonetic Engine Rules",
+                    cases: [
+                        { input: "fall", expected: "falva", type: "exact" },
+                        { input: "turn", expected: "turnee", type: "exact" },
+                        { input: "turn it", expected: "turnip", type: "exact" }
+                    ]
+                },
+                {
+                    group: "General Generation",
+                    cases: [
+                        { input: "computer", expected: "", type: "generated" },
+                        { input: "algorithm", expected: "", type: "generated" }
+                    ]
+                }
+            ];
+
+            let html = '';
+
+            tests.forEach(group => {
+                html += `<div class="test-group"><h3>${group.group}</h3>`;
+                group.cases.forEach(test => {
+                    let output = translator.translate(test.input);
+                    // Clean up output (remove brackets if any, though translate() usually handles them)
+                    output = output.replace(/\[\[|\]\]/g, '');
+
+                    let passed = false;
+                    if (test.type === 'exact') {
+                        passed = output.trim().toLowerCase() === test.expected.toLowerCase();
+                    } else if (test.type === 'contains') {
+                        passed = output.toLowerCase().includes(test.expected.toLowerCase());
+                    } else if (test.type === 'generated') {
+                        passed = output.length > 0 && output !== test.input;
+                    }
+
+                    html += `
+                        <div class="test-case">
+                            <span><strong>${test.input}</strong> &rarr; ${output}</span>
+                            <span class="status ${passed ? 'pass' : 'fail'}">${passed ? 'PASS' : 'FAIL'}</span>
+                        </div>`;
+                });
+                html += `</div>`;
+            });
+
+            resultsDiv.innerHTML = html;
+        }
+
+        window.onload = runTests;
+    </script>
+</body>
+
+</html>

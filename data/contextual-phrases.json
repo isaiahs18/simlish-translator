@@ -1,0 +1,188 @@
+{
+    "i love you": [
+        {
+            "simlish": "por see gab lurv",
+            "context": [
+                "so",
+                "much",
+                "really",
+                "truly",
+                "deeply",
+                "forever",
+                "always"
+            ],
+            "weight": 1.5
+        },
+        {
+            "simlish": "meshaloob",
+            "context": [
+                "baby",
+                "babe",
+                "honey",
+                "darling",
+                "sweetie",
+                "dear"
+            ],
+            "weight": 1.2
+        },
+        {
+            "simlish": "jadosi",
+            "context": [
+                "this",
+                "that",
+                "it",
+                "everything",
+                "all",
+                "too"
+            ],
+            "weight": 0.8
+        }
+    ],
+    "love": [
+        {
+            "simlish": "meshaloob",
+            "context": [
+                "i",
+                "you",
+                "we",
+                "my",
+                "your",
+                "our",
+                "me"
+            ],
+            "weight": 1.5
+        },
+        {
+            "simlish": "jadosi",
+            "context": [
+                "this",
+                "that",
+                "it",
+                "song",
+                "music",
+                "place"
+            ],
+            "weight": 1.0
+        }
+    ],
+    "hot": [
+        {
+            "simlish": "hotta",
+            "context": [
+                "temperature",
+                "weather",
+                "sun",
+                "fire"
+            ],
+            "weight": 1.2
+        },
+        {
+            "simlish": "haspa",
+            "context": [
+                "look",
+                "sexy",
+                "attractive",
+                "gorgeous"
+            ],
+            "weight": 1.5
+        },
+        {
+            "simlish": "trenba",
+            "context": [
+                "trending",
+                "popular",
+                "viral",
+                "new"
+            ],
+            "weight": 1.0
+        }
+    ],
+    "cool": [
+        {
+            "simlish": "colda",
+            "context": [
+                "temperature",
+                "ice",
+                "cold",
+                "freeze"
+            ],
+            "weight": 1.2
+        },
+        {
+            "simlish": "zow zibby",
+            "context": [
+                "awesome",
+                "nice",
+                "great",
+                "amazing"
+            ],
+            "weight": 1.5
+        }
+    ],
+    "fire": [
+        {
+            "simlish": "fliblia",
+            "context": [
+                "burn",
+                "flame",
+                "smoke",
+                "heat"
+            ],
+            "weight": 1.3
+        },
+        {
+            "simlish": "zep tor maboo",
+            "context": [
+                "awesome",
+                "amazing",
+                "lit",
+                "dope"
+            ],
+            "weight": 1.5
+        }
+    ],
+    "sick": [
+        {
+            "simlish": "feebee",
+            "context": [
+                "ill",
+                "disease",
+                "doctor",
+                "medicine"
+            ],
+            "weight": 1.3
+        },
+        {
+            "simlish": "zow zibby",
+            "context": [
+                "awesome",
+                "cool",
+                "dope",
+                "amazing"
+            ],
+            "weight": 1.5
+        }
+    ],
+    "dance": [
+        {
+            "simlish": "densh",
+            "context": [
+                "party",
+                "club",
+                "music",
+                "dj"
+            ],
+            "weight": 1.3
+        },
+        {
+            "simlish": "snoogy woogy",
+            "context": [
+                "formal",
+                "ballroom",
+                "waltz",
+                "ballet"
+            ],
+            "weight": 1.0
+        }
+    ]
+}

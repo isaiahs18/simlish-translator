@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simlish Song Lyrics - All 210+ Songs 🎵</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .song-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .song-card {
+            background: linear-gradient(135deg, #4b6cb7 0%, #182848 100%);
+            border-radius: 12px;
+            padding: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .song-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+        }
+
+        .song-card.ready {
+            background: linear-gradient(135deg, #38ef7d 0%, #11998e 100%);
+        }
+
+        .song-title {
+            font-size: 1.1em;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 6px;
+        }
+
+        .song-artist {
+            font-size: 0.9em;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 6px;
+        }
+
+        .song-game {
+            font-size: 0.75em;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 10px;
+        }
+
+        .song-status {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 0.7em;
+            font-weight: 600;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+        }
+
+        .song-status.ready {
+            background: #38ef7d;
+            color: #333;
+        }
+
+        .billboard-badge {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            background: gold;
+            color: #333;
+            padding: 3px 6px;
+            border-radius: 10px;
+            font-size: 0.6em;
+            font-weight: 700;
+        }
+
+        .warning-box {
+            background: #fff3cd;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            color: #856404;
+            border: 1px solid #ffeaa7;
+        }
+
+        .stats {
+            background: #e3f2fd;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 20px 0;
+            color: #1565c0;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>🎵 Simlish Song Lyrics Database</h1>
+            <p class="subtitle">All 210+ official Simlish songs from The Sims franchise</p>
+            <p style="margin-top: 15px;">
+                <a href="index.html" class="btn-primary" style="display:inline-block; margin-right:10px;">🔙
+                    Translator</a>
+                <a href="bulk-lyrics-matcher.html" class="btn-primary" style="display:inline-block;">✏️ Add Lyrics</a>
+            </p>
+        </header>
+        <main>
+            <div class="stats">
+                <strong>📊 Database Stats:</strong> 1 song complete | 210+ total songs | Help us transcribe more!
+            </div>
+            <div class="warning-box">
+                <strong>🚧 Help Wanted!</strong> Most songs need transcription. Use the <a
+                    href="bulk-lyrics-matcher.html">Bulk Lyrics Matcher</a> to add more songs!
+            </div>
+            <div class="song-grid" id="song-grid"></div>
+        </main>
+        <footer>
+            <p>Made with ❤️ for Sims fans | 210+ songs waiting for lyrics!</p>
+        </footer>
+    </div>
+    <script>
+        const songs = [
+            // Ready songs
+            { title: "Country Girl (Shake It For Me)", artist: "Luke Bryan", game: "Sims 3: Pets", billboard: "#1 Country", status: "ready", link: "lyrics-country-girl.html" },
+
+            // Katy Perry
+            { title: "Last Friday Night", artist: "Katy Perry", game: "Sims 3", billboard: "#1" },
+            { title: "Hot N Cold", artist: "Katy Perry", game: "Sims 2/4", billboard: "#3" },
+
+            // Major Pop Hits
+            { title: "We Are Young", artist: "Fun.", game: "Sims 3/4", billboard: "#1" },
+            { title: "Run Away With Me", artist: "Carly Rae Jepsen", game: "Sims 4" },
+            { title: "Don't Cha", artist: "Pussycat Dolls", game: "Sims 2", billboard: "#2" },
+            { title: "Hot in Herre", artist: "Nelly", game: "Sims 4", billboard: "#1" },
+
+            // Rock/Alternative
+            { title: "Pressure", artist: "Paramore", game: "Sims 2/4" },
+            { title: "Na Na Na", artist: "My Chemical Romance", game: "Sims 3" },
+
+            // Indie/Folk
+            { title: "Smile", artist: "Lily Allen", game: "Sims 2", billboard: "UK #1" },
+            { title: "Pocket Full of Sunshine", artist: "Natasha Bedingfield", game: "Sims 2" },
+
+            // Country
+            { title: "Need You Now", artist: "Lady Antebellum", game: "Sims 3" }
+        ];
+
+        const grid = document.getElementById('song-grid');
+        songs.forEach(song => {
+            const card = document.createElement('div');
+            card.className = song.status === 'ready' ? 'song-card ready' : 'song-card';
+            card.onclick = () => {
+                if (song.link) {
+                    window.location.href = song.link;
+                } else {
+                    alert('This song hasn\'t been transcribed yet. Use the Bulk Lyrics Matcher to add it!');
+                }
+            };
+
+            card.innerHTML = `
+                ${song.billboard ? `<div class="billboard-badge">${song.billboard}</div>` : ''}
+                <div class="song-title">${song.title}</div>
+                <div class="song-artist">${song.artist}</div>
+                <div class="song-game">${song.game}</div>
+                <span class="song-status ${song.status === 'ready' ? 'ready' : ''}">${song.status === 'ready' ? '✅ Ready' : '🚧 Not Ready'}</span>
+            `;
+            grid.appendChild(card);
+        });
+    </script>
+</body>
+
+</html>

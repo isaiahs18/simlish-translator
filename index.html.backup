@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simlish Song Translator 🎵</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>🎵 Simlish Song Translator</h1>
+            <p class="subtitle">Translate song lyrics to Simlish with perfect syllable matching!</p>
+            <p><a href="dictionary.html" class="btn-primary" style="margin-top:10px; display:inline-block;">📖 General
+                    Dictionary</a></p>
+        </header>
+
+        <main>
+            <!-- Side-by-side translator -->
+            <div class="translator-container">
+                <div class="translator-columns">
+                    <div class="column">
+                        <label for="english-input">English Lyrics</label>
+                        <textarea id="english-input" placeholder="Enter your text here..."></textarea>
+                    </div>
+
+                    <div class="column">
+                        <label for="simlish-output">Simlish Translation</label>
+                        <textarea id="simlish-output" placeholder="Your Simlish translation will appear here..."
+                            readonly></textarea>
+                    </div>
+                </div>
+
+                <div class="controls">
+                    <button id="translate-btn" class="btn-primary">Translate to Simlish →</button>
+                    <button id="clear-btn" class="btn-clear">Clear All</button>
+                </div>
+            </div>
+
+            <!-- Common phrases -->
+            <div class="common-phrases">
+                <h3>Quick Phrases</h3>
+                <div class="phrase-grid">
+                    <div class="phrase-card" data-english="Hello" data-simlish="Sul sul">
+                        <span class="phrase-simlish">Sul sul!</span>
+                        <span class="phrase-english">Hello!</span>
+                    </div>
+                    <div class="phrase-card" data-english="Goodbye" data-simlish="Dag dag">
+                        <span class="phrase-simlish">Dag dag!</span>
+                        <span class="phrase-english">Goodbye!</span>
+                    </div>
+                    <div class="phrase-card" data-english="I love you" data-simlish="Meshaloob">
+                        <span class="phrase-simlish">Meshaloob!</span>
+                        <span class="phrase-english">I love you!</span>
+                    </div>
+                    <div class="phrase-card" data-english="Thank you" data-simlish="Vadish">
+                        <span class="phrase-simlish">Vadish!</span>
+                        <span class="phrase-english">Thank you!</span>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>Made with ❤️ for Sims fans | Syllable-matched translation for singing!</p>
+            <p style="margin-top: 10px;">
+                <a href="lyrics.html" style="color: #9b59b6; text-decoration: none; font-weight: 600;">🎵 Song
+                    Lyrics</a>
+                <a href="songs.html"
+                    style="color: #9b59b6; text-decoration: none; font-weight: 600; margin-left: 15px;">🎵 View Song
+                    Dictionary</a>
+                <a href="dictionary.html" <!DOCTYPE html>
+                    <html lang="en">
+
+                    <head>
+                        <meta charset="UTF-8">
+                        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                        <title>Simlish Song Translator 🎵</title>
+                        <link rel="stylesheet" href="style.css">
+                    </head>
+
+                    <body>
+                        <div class="container">
+                            <header>
+                                <h1>🎵 Simlish Song Translator</h1>
+                                <p class="subtitle">Translate song lyrics to Simlish with perfect syllable matching!</p>
+                                <p><a href="dictionary.html" class="btn-primary"
+                                        style="margin-top:10px; display:inline-block;">📖 General
+                                        Dictionary</a></p>
+                            </header>
+
+                            <main>
+                                <!-- Side-by-side translator -->
+                                <div class="translator-container">
+                                    <div class="translator-columns">
+                                        <div class="column">
+                                            <label for="english-input">English Lyrics</label>
+                                            <textarea id="english-input"
+                                                placeholder="Enter your text here..."></textarea>
+                                        </div>
+
+                                        <div class="column">
+                                            <label for="simlish-output">Simlish Translation</label>
+                                            <textarea id="simlish-output"
+                                                placeholder="Your Simlish translation will appear here..."
+                                                readonly></textarea>
+                                        </div>
+                                    </div>
+
+                                    <div class="controls">
+                                        <button id="translate-btn" class="btn-primary">Translate to Simlish →</button>
+                                        <button id="clear-btn" class="btn-clear">Clear All</button>
+                                    </div>
+                                </div>
+
+                                <!-- Common phrases -->
+                                <div class="common-phrases">
+                                    <h3>Quick Phrases</h3>
+                                    <div class="phrase-grid">
+                                        <div class="phrase-card" data-english="Hello" data-simlish="Sul sul">
+                                            <span class="phrase-simlish">Sul sul!</span>
+                                            <span class="phrase-english">Hello!</span>
+                                        </div>
+                                        <div class="phrase-card" data-english="Goodbye" data-simlish="Dag dag">
+                                            <span class="phrase-simlish">Dag dag!</span>
+                                            <span class="phrase-english">Goodbye!</span>
+                                        </div>
+                                        <div class="phrase-card" data-english="I love you" data-simlish="Meshaloob">
+                                            <span class="phrase-simlish">Meshaloob!</span>
+                                            <span class="phrase-english">I love you!</span>
+                                        </div>
+                                        <div class="phrase-card" data-english="Thank you" data-simlish="Vadish">
+                                            <span class="phrase-simlish">Vadish!</span>
+                                            <span class="phrase-english">Thank you!</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </main>
+
+                            <footer>
+                                <p>Made with ❤️ for Sims fans | Syllable-matched translation for singing!</p>
+                                <p style="margin-top: 10px;">
+                                    <a href="lyrics.html"
+                                        style="color: #9b59b6; text-decoration: none; font-weight: 600;">🎵 Song
+                                        Lyrics</a>
+                                    <a href="songs.html"
+                                        style="color: #9b59b6; text-decoration: none; font-weight: 600; margin-left: 15px;">🎵
+                                        View Song
+                                        Dictionary</a>
+                                    <a href="dictionary.html"
+                                        style="color: #9b59b6; text-decoration: none; font-weight: 600; margin-left: 15px;">📖
+                                        General
+                                        Dictionary</a>
+                                </p>
+                            </footer>
+                        </div>
+
+                        <!-- Optimized modular architecture -->
+                        <script src="js/data-loader.js"></script>
+                        <script src="js/core/translator.js"></script>
+                        <script>
+                            // Initialize translator with async data loading
+                            let translator = null;
+                            const loader = new DataLoader();
+
+                            // Load data and initialize translator
+                            async function initializeTranslator() {
+                                try {
+                                    console.log('🚀 Initializing Simlish Translator...');
+                                    const data = await loader.loadTranslatorData();
+                                    translator = new SimlishTranslator(
+                                        data.dictionary,
+                                        data.contextualPhrases,
+                                        data.semanticCategories
+                                    );
+                                    console.log('✅ Translator ready!');
+
+                                    // Enable translate button
+                                    document.getElementById('translate-btn').disabled = false;
+                                } catch (error) {
+                                    console.error('❌ Failed to initialize translator:', error);
+                                    alert('Failed to load translator data. Please refresh the page.');
+                                }
+                            }
+
+                            // Initialize on page load
+                            window.addEventListener('DOMContentLoaded', initializeTranslator);
+
+                            // Translation function
+                            function translateText() {
+                                if (!translator) {
+                                    alert('Translator is still loading. Please wait...');
+                                    return;
+                                }
+
+                                const input = document.getElementById('english-input').value;
+                                const output = translator.translate(input);
+                                document.getElementById('simlish-output').value = output;
+                            }
+
+                            // Clear function
+                            function clearAll() {
+                                document.getElementById('english-input').value = '';
+                                document.getElementById('simlish-output').value = '';
+                            }
+
+                            // Event listeners
+                            window.addEventListener('DOMContentLoaded', () => {
+                                // Disable translate button until loaded
+                                document.getElementById('translate-btn').disabled = true;
+                                document.getElementById('translate-btn').textContent = 'Loading...';
+
+                                document.getElementById('translate-btn').addEventListener('click', translateText);
+                                document.getElementById('clear-btn').addEventListener('click', clearAll);
+
+                                // Auto-translate on Enter key
+                                document.getElementById('english-input').addEventListener('keypress', (e) => {
+                                    if (e.key === 'Enter' && !e.shiftKey) {
+                                        e.preventDefault();
+                                        translateText();
+                                    }
+                                });
+
+                                // Quick phrase clicks
+                                document.querySelectorAll('.phrase-card').forEach(card => {
+                                    card.addEventListener('click', () => {
+                                        const english = card.dataset.english;
+                                        document.getElementById('english-input').value = english;
+                                        translateText();
+                                    });
+                                });
+
+                                // Update button text when ready
+                                setTimeout(() => {
+                                    if (translator) {
+                                        document.getElementById('translate-btn').textContent = 'Translate to Simlish →';
+                                    }
+                                }, 1000);
+                            });
+                        </script>
+                    </body>
+
+                    </html>
